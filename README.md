@@ -1,21 +1,33 @@
-# docker-php56
+# Docker image for PHP 5.6.lastest
 
-Dockerfile to build a PHP 5.6 docker image
+A powerful yet highly customizable image for PHP 5.6.lastest FPM & CLI
 
-## OS Version
+## Features
 
-Based on CentOS7 instead of official PHP image.
+- Based on CentOS 7
+- PHP 5.6.lastest
+- Both FPM & CLI
+- Easy to customize
 
-## PHP Version
+## PHP Extensions
 
-PHP V5.6 (lastest version), both FPM and CLI.
+- `mysqlnd` (`mysql`/`mysqli`/`pdo` included)
+- `gd`
+- `mcrypt`
+- `mbstring`
+- `pecl-memcache`
+- `pecl-memcached`
+- `opcache`
+- ... (Very easy to install any other extensions)
 
-## Extension
+## Defaults
 
-- mysqlnd (mysql/mysqli/pdo)
-- gd
-- mcrypt
-- mbstring
-- pecl-memcache
-- pecl-memcached
-- opcache
+- Volume: `/opt/www`
+- Port: `9000`
+- PHP Timezone: `PRC` (China)
+
+## Why not based on the official PHP image?
+
+- Hard to install extensions
+- Hard to customize
+- Too many versions

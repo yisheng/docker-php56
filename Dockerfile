@@ -6,12 +6,12 @@ MAINTAINER "Daniel Yang" <yang@desheng.me>
 RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm && \
     rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-# Setup 163 Repo
-RUN yum -y install wget && \
-    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
-    wget -P /etc/yum.repos.d/ http://mirrors.163.com/.help/CentOS7-Base-163.repo && \
-    yum clean all && \
-    yum makecache
+# Setup 163 Repo (Just for users in China)
+# RUN yum -y install wget && \
+#     mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && \
+#     wget -P /etc/yum.repos.d/ http://mirrors.163.com/.help/CentOS7-Base-163.repo && \
+#     yum clean all && \
+#     yum makecache
 
 # OS Update
 RUN yum update -y && \
@@ -29,6 +29,7 @@ RUN yum install --enablerepo=remi -y \
         php56-php-pecl-memcached \
         php56-php-opcache
 
+# Update PHP Config
 RUN sed -i "s/;date.timezone =.*/date.timezone = PRC/" /opt/remi/php56/root/etc/php.ini  && \
     sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /opt/remi/php56/root/etc/php.ini  && \
     sed -i "s/display_errors = Off/display_errors = stderr/" /opt/remi/php56/root/etc/php.ini  && \
