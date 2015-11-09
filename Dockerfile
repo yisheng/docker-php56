@@ -25,9 +25,10 @@ RUN yum install --enablerepo=remi -y \
         php56-php-gd \
         php56-php-mcrypt \
         php56-php-mbstring \
+        php56-php-opcache \
         php56-php-pecl-memcache \
         php56-php-pecl-memcached \
-        php56-php-opcache
+        php56-php-pecl-redis
 
 # Update PHP Config
 RUN sed -i "s/;date.timezone =.*/date.timezone = PRC/" /opt/remi/php56/root/etc/php.ini  && \
