@@ -14,8 +14,8 @@ RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.no
 #     yum makecache
 
 # OS Update
-RUN yum update -y && \
-    yum install -y vim
+RUN yum update -y && yum install -y \
+    vim
 
 # Install PHP
 RUN yum install --enablerepo=remi -y \
