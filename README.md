@@ -1,6 +1,6 @@
 # Docker image for PHP 5.6.lastest
 
-A powerful yet highly customizable image for PHP 5.6.lastest FPM & CLI
+A powerful yet highly customizable image for PHP 5.6.lastest FPM & CLI.
 
 ## Features
 
